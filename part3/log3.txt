@@ -1,0 +1,127 @@
+==4541== Memcheck, a memory error detector
+==4541== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==4541== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==4541== Command: ./park -n 12 -c 2 -p 4 -w 6 -r 3
+==4541== 
+===== DUCK PARK SIMULATION =====
+[Time: 00:00:00] Simulation starting with:
+	- Passengers: 12
+	- Cars: 2
+	- Capacity per Car: 4
+	- Wait Timeout: 6 sec
+	- Ride Duration: 3 sec
+
+[Time: 00:00:00] [Car 0] Invoked load() for ride #1
+[Time: 00:00:01] [Car 1] Invoked load() for ride #1
+[Time: 00:00:01] [Passenger  1] Exploring the park...
+[Time: 00:00:01] [Passenger  2] Exploring the park...
+[Time: 00:00:01] [Passenger  3] Exploring the park...
+[Time: 00:00:01] [Passenger  4] Exploring the park...
+[Time: 00:00:01] [Passenger  5] Exploring the park...
+[Time: 00:00:01] [Passenger  6] Exploring the park...
+[Time: 00:00:01] [Passenger  7] Exploring the park...
+[Time: 00:00:01] [Passenger  8] Exploring the park...
+[Time: 00:00:01] [Passenger  9] Exploring the park...
+[Time: 00:00:01] [Passenger 10] Exploring the park...
+[Time: 00:00:01] [Passenger 11] Exploring the park...
+[Time: 00:00:01] [Passenger 12] Exploring the park...
+[Monitor] [Time: 00:00:01] ========= SYSTEM SNAPSHOT =========
+  [Car 0] Status: LOADING | Onboard: 0/4 | Unboarded: 0 | Unloading: NO
+  [Car 1] Status: LOADING | Onboard: 0/4 | Unboarded: 0 | Unloading: NO
+  Passengers served: 0/12
+====================================
+
+[Time: 00:00:02] [Passenger  1] Got a ticket
+[Time: 00:00:02] [Passenger  1] Boarded Car 0 (1/4)
+[Time: 00:00:02] [Passenger  6] Got a ticket
+[Time: 00:00:02] [Passenger  6] Boarded Car 0 (2/4)
+[Time: 00:00:02] [Passenger  8] Got a ticket
+[Time: 00:00:02] [Passenger  8] Boarded Car 0 (3/4)
+[Time: 00:00:02] [Passenger 12] Got a ticket
+[Time: 00:00:02] [Passenger 12] Boarded Car 0 (4/4)
+[Time: 00:00:02] [Car 0] Departing for ride #1 with 4 passenger(s)
+[Time: 00:00:03] [Passenger  2] Got a ticket
+[Time: 00:00:03] [Passenger  2] Boarded Car 1 (1/4)
+[Time: 00:00:03] [Passenger  3] Got a ticket
+[Time: 00:00:03] [Passenger  3] Boarded Car 1 (2/4)
+[Time: 00:00:03] [Passenger  4] Got a ticket
+[Time: 00:00:03] [Passenger  4] Boarded Car 1 (3/4)
+[Time: 00:00:03] [Passenger  9] Got a ticket
+[Time: 00:00:03] [Passenger  9] Boarded Car 1 (4/4)
+[Time: 00:00:03] [Car 1] Departing for ride #1 with 4 passenger(s)
+[Monitor] [Time: 00:00:03] ========= SYSTEM SNAPSHOT =========
+  [Car 0] Status: WAITING | Onboard: 4/4 | Unboarded: 0 | Unloading: NO
+  [Car 1] Status: WAITING | Onboard: 4/4 | Unboarded: 0 | Unloading: NO
+  Passengers served: 0/12
+====================================
+
+[Time: 00:00:04] [Passenger  5] Got a ticket
+[Time: 00:00:04] [Passenger  7] Got a ticket
+[Time: 00:00:04] [Passenger 10] Got a ticket
+[Time: 00:00:04] [Passenger 11] Got a ticket
+[Monitor] [Time: 00:00:05] ========= SYSTEM SNAPSHOT =========
+  [Car 0] Status: WAITING | Onboard: 4/4 | Unboarded: 0 | Unloading: NO
+  [Car 1] Status: WAITING | Onboard: 4/4 | Unboarded: 0 | Unloading: NO
+  Passengers served: 0/12
+====================================
+
+[Time: 00:00:05] [Car 0] Invoked unload() for ride #1
+[Time: 00:00:05] [Passenger  1] Unboarded from Car 0
+[Time: 00:00:05] [Passenger  6] Unboarded from Car 0
+[Time: 00:00:05] [Passenger  6] Finished ride. Served: 1/12
+[Time: 00:00:05] [Passenger  8] Unboarded from Car 0
+[Time: 00:00:05] [Passenger  8] Finished ride. Served: 2/12
+[Time: 00:00:05] [Passenger 12] Unboarded from Car 0
+[Time: 00:00:05] [Passenger 12] Finished ride. Served: 3/12
+[Time: 00:00:05] [Passenger  1] Finished ride. Served: 4/12
+[Time: 00:00:05] [Car 0] Invoked load() for ride #2
+[Time: 00:00:05] [Passenger  5] Boarded Car 0 (1/4)
+[Time: 00:00:05] [Passenger 10] Boarded Car 0 (2/4)
+[Time: 00:00:05] [Passenger 11] Boarded Car 0 (3/4)
+[Time: 00:00:05] [Passenger  7] Boarded Car 0 (4/4)
+[Time: 00:00:05] [Car 0] Departing for ride #2 with 4 passenger(s)
+[Time: 00:00:06] [Car 1] Invoked unload() for ride #1
+[Time: 00:00:06] [Passenger  2] Unboarded from Car 1
+[Time: 00:00:06] [Passenger  2] Finished ride. Served: 5/12
+[Time: 00:00:06] [Passenger  3] Unboarded from Car 1
+[Time: 00:00:06] [Passenger  3] Finished ride. Served: 6/12
+[Time: 00:00:06] [Passenger  4] Unboarded from Car 1
+[Time: 00:00:06] [Passenger  4] Finished ride. Served: 7/12
+[Time: 00:00:06] [Passenger  9] Unboarded from Car 1
+[Time: 00:00:06] [Car 1] Invoked load() for ride #2
+[Time: 00:00:06] [Passenger  9] Finished ride. Served: 8/12
+[Monitor] [Time: 00:00:07] ========= SYSTEM SNAPSHOT =========
+  [Car 0] Status: WAITING | Onboard: 4/4 | Unboarded: 0 | Unloading: NO
+  [Car 1] Status: LOADING | Onboard: 0/4 | Unboarded: 0 | Unloading: NO
+  Passengers served: 8/12
+====================================
+
+[Time: 00:00:08] [Car 0] Invoked unload() for ride #2
+[Time: 00:00:08] [Passenger  5] Unboarded from Car 0
+[Time: 00:00:08] [Passenger  5] Finished ride. Served: 9/12
+[Time: 00:00:08] [Passenger 10] Unboarded from Car 0
+[Time: 00:00:08] [Passenger 10] Finished ride. Served: 10/12
+[Time: 00:00:08] [Passenger 11] Unboarded from Car 0
+[Time: 00:00:08] [Passenger 11] Finished ride. Served: 11/12
+[Time: 00:00:08] [Passenger  7] Unboarded from Car 0
+[Time: 00:00:08] [Passenger  7] Finished ride. Served: 12/12
+[Time: 00:00:08] [Car 0] Exiting (all passengers served).
+[Monitor] [Time: 00:00:09] All passengers served. Monitor exiting.
+[Monitor] FINAL STATISTICS:
+Total simulation time: 00:00:09
+Total passengers served: 12
+Total rides completed: 3
+Average wait time in ticket queue: 0.0 seconds
+Average wait time in ride queue: 0.4 seconds
+Average car utilization: 100% (4.0/4 passengers per ride)
+[Time: 00:00:12] [Car 1] Exiting (all passengers served).
+[Time: 00:00:12] Simulation complete. All 12 passengers served.
+==4541== 
+==4541== HEAP SUMMARY:
+==4541==     in use at exit: 0 bytes in 0 blocks
+==4541==   total heap usage: 28 allocs, 28 frees, 8,224 bytes allocated
+==4541== 
+==4541== All heap blocks were freed -- no leaks are possible
+==4541== 
+==4541== For lists of detected and suppressed errors, rerun with: -s
+==4541== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
